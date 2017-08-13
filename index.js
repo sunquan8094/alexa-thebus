@@ -31,13 +31,13 @@ var handlers = {
       self.emit(":ask", "I didn't get everything. Please try again.");
       return;
     }
-    if (/[Aa](lpha)?/.test(route)) {
+    if (/^[Aa](lpha)?$/.test(route)) {
       route = 'A';
     }
-    if (/[Cc](harlie)?/.test(route)) {
+    if (/^[Cc](harlie)?$/.test(route)) {
       route = 'C';
     }
-    if (/[Ee](echo)?/.test(route)) {
+    if (/^[Ee](cho)?$/.test(route)) {
       route = 'E';
     }
     request({url: 'http://api.thebus.org/arrivals/?key=' + settings.api_key + '&stop=' + stop,
