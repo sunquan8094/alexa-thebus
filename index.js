@@ -18,7 +18,7 @@ var handlers = {
                    self.emit(':tell', "The next bus is route " + route + ", " + estSched + " to arrive at " + time + ".");
                  }
                  else {
-                   self.emit(':tell', "There is no information on bus arrivals for the stop you specified at this time. Please check back later.");
+                   self.emit(':tell', "There is no information on bus arrivals for the stop you specified at this time. Please check back later. Mahalo for using Honolulu Bus Arrivals.");
                  }
                });
              });
@@ -55,20 +55,31 @@ var handlers = {
                      self.emit(':tell', "The next route " + route + " bus is " + estSched + " to arrive at stop number " + stop + " at " + time + ".");
                    }
                    else {
-                     self.emit(':tell', "There is no information on route " + route + " bus arrivals " + " at stop " + stop + " at this time. Please check back later.");
+                     self.emit(':tell', "There is no information on route " + route + " bus arrivals " + " at stop " + stop + " at this time. Please check back later. Mahalo for using Honolulu Bus Arrivals.");
                    }
                  }
                  else {
-                   self.emit(':tell', "There is no information on route " + route + " bus arrivals " + " at stop " + stop + " at this time. Please check back later.");
+                   self.emit(':tell', "There is no information on route " + route + " bus arrivals " + " at stop " + stop + " at this time. Please check back later. Mahalo for using Honolulu Bus Arrivals.");
                  }
                });
              });
+  },
+  "AMAZON.HelpIntent": function() {
+    this.emit(":ask", "This skill allows you to look up scheduled and estimated arrivals at specified bus stops. " +
+      "You can ask for the arrival time of the next bus at a desired stop by specifying its stop ID number. " +
+      "For instance, try asking: when will the next bus arrive at stop 131. " +
+      "You can also ask when the next bus on a desired route will arrive at a desired stop. " +
+      "For instance, try asking: when will the next route 1 arrive at stop 131. " +
+      "What would you like to ask?");
+  },
+  "AMAZON.StopIntent": function() {
+    this.emit(":tell", "Mahalo for using Honolulu Bus Arrivals.");
   },
   "Unhandled": function () {
     this.emit(":ask", "I don't understand that. Please try again.");
   },
   "LaunchRequest": function() {
-    this.emit(":ask", "Aloha from TheBus. What would you like to ask?");
+    this.emit(":ask", "Aloha. Welcome to Honolulu Bus Arrivals. What would you like to ask?");
   }
 }
 
