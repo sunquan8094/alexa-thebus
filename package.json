@@ -1,13 +1,21 @@
 {
   "name": "alexa-thebus",
   "description": "Alexa skill for accessing TheBus arrival times",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "dependencies": {
     "alexa-sdk": "^1.0.11",
     "aws-sdk": "^2.96.0",
-    "http": "0.0.0",
     "request": "^2.81.0",
+    "underscore": "^1.8.3",
     "xml2js": "^0.4.17"
   },
-  "license": "ISC"
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "license": "ISC",
+  "repository": "https://github.com/sunquan8094/alexa-thebus",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.0.0"
+  }
 }
